@@ -1,0 +1,26 @@
+{
+  "name": "saucedemo-with-cypress",
+  "version": "1.0.0",
+  "description": "Automação de testes end-to-end do SauceDemo com Cypress. Este repositório contém testes automatizados para garantir a qualidade e a funcionalidade do site de demonstração de e-commerce SauceDemo. Os testes são escritos em Cypress e cobrem diversos cenários de uso, como login, adição de itens ao carrinho, checkout e outros.",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "test": "cypress run"
+  },
+  "keywords": [
+    "Cypress",
+    "SauceDemo",
+    "End-to-End",
+    "Automated",
+    "Tests",
+    "SauceLabs",
+    "Cypress.io",
+    "QA",
+    "Custom commands"
+  ],
+  "author": "Raquel Carneiro Lucio",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^13.13.3"
+  }
+}
