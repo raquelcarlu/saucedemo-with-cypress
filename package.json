@@ -21,6 +21,6 @@
   "author": "Raquel Carneiro Lucio",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "^13.13.3"
+    "cypress": "^9.5.1"
   }
 }
