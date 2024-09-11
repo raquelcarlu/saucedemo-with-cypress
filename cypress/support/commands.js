@@ -16,9 +16,21 @@ Cypress.Commands.add('login', (email, password) => {
     cy.get('[data-test="login-button"]').click()
 })
 
-Cypress.Commands.add('adicionarAoCarrinho', () => {
-    cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
-    
+Cypress.Commands.add('adicionarAoCarrinho', (quantidade) => {
+    if(quantidade == 3){
+        cy.get('[data-test="add-to-cart-sauce-labs-bolt-t-shirt"]').click()
+        quantidade--;
+    }
+    if(quantidade == 2){
+        cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click()
+        quantidade--;
+    }
+    if (quantidade == 1){
+        cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
+    }
+    else{
+        console.log("quantidade de produtos inválida")
+    }
 })
 //
 //
