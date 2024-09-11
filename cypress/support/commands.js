@@ -16,6 +16,10 @@ Cypress.Commands.add('login', (email, password) => {
     cy.get('[data-test="login-button"]').click()
 })
 
+Cypress.Commands.add('adicionarAoCarrinho', () => {
+    cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
+    
+})
 //
 //
 // -- This is a child command --
