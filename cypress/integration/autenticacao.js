@@ -9,9 +9,18 @@ describe('Realizar autenticacao na aplicacao', () => {
       cy.get('[data-test="title"]').contains('Products')
     })
 
-    //TODO login com credenciais de usuário bloqueado
+    it('tentar login com usuario bloqueado', () => {
+      cy.login('locked_out_user', 'secret_sauce')
+      cy.get('[data-test="error"]').contains('Epic sadface: Sorry, this user has been locked out.')
+    })
 
-    //TODO login com credenciais de um usuario que nao existe
+    it('tentar login com usuario inexistente', () => {
+      cy.login('wrong_user', 'secret_sauce')
+      cy.get('[data-test="error"]').contains('Epic sadface: Username and password do not match any user in this service')
+    })
 
-    //TODO login com senha incorreta
+    it('tentar login com senha incorreta', () => {
+      cy.login('standard_user', 'wrong_password')
+      cy.get('[data-test="error"]').contains('Epic sadface: Username and password do not match any user in this service')
+    })
   })
