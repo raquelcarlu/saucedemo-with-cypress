@@ -1,46 +1,30 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-Cypress.Commands.add('login', (email, password) => {
-    cy.get('[data-test="username"]').should('be.visible').type(email)
-    cy.get('[data-test="password"]').should('be.visible').type(password)
-    cy.get('[data-test="login-button"]').click()
+import users from '../fixtures/users.json'
+import loginPage from './pageElements/loginPage'
+import catalogoPage from './pageElements/catalogoPage'
+
+Cypress.Commands.add('login', (scenario) => {
+    cy.visit('/')
+
+    const user = users.data.find(users => users.scenario === scenario)
+
+    cy.get(loginPage.getUsersName).should('be.visible').type(user.username)
+    cy.get(loginPage.getPassword).should('be.visible').type(user.password)
+    cy.get(loginPage.loginButton).click()
 })
 
 Cypress.Commands.add('adicionarAoCarrinho', (quantidade) => {
     if(quantidade == 3){
-        cy.get('[data-test="add-to-cart-sauce-labs-bolt-t-shirt"]').click()
+        cy.get(catalogoPage.addToCartTShirt).click()
         quantidade--;
     }
     if(quantidade == 2){
-        cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click()
+        cy.get(catalogoPage.addToCartBikeLight).click()
         quantidade--;
     }
     if (quantidade == 1){
-        cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
+        cy.get(catalogoPage.addToCartBackpack).click()
     }
     else{
         console.log("quantidade de produtos inválida")
     }
 })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })

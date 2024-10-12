@@ -7,4 +7,5 @@ module.exports = {
     },
     baseUrl: "https://www.saucedemo.com/"
   },
+  "video": true,
 }
