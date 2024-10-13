@@ -24,7 +24,8 @@ Automação de testes end-to-end do SauceDemo com Cypress. Este repositório con
 
 1. Clone este repositório.
 2. Instale as dependências: `npm install`.
-3. Execute os testes: `npx cypress open`.
+3. Execute os testes no modo headless: `npm run test`.
+4. Ou execute os testes visualmente: `npm run cy:open`. 
 
 **Características deste projeto:**
 
